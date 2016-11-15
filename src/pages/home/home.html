@@ -1,0 +1,29 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Home</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <div>
+        <p>List of heroes</p>
+        <ul *ngFor="let hero of heroes | async">
+            <li>
+                {{hero.name}}
+            </li>
+        </ul>
+    </div>
+    <form [formGroup]="heroForm">
+        <ion-grid>
+            <ion-row>
+                <ion-item>
+                    <ion-label fixed>Heroe</ion-label>
+                    <ion-input type="text" formControlName="heroname"></ion-input>
+                </ion-item>
+            </ion-row>
+            <ion-row>
+                <button ion-button full (click)="save()">Add hero</button>
+            </ion-row>
+        </ion-grid>
+    </form>
+</ion-content>
